@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  UpdateSpendingViewController.swift
 //  Spendometer
 //
 //  Created by Thet Htun on 12/12/20.
@@ -7,17 +7,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class UpdateSpendingViewController: UIViewController {
 
-    @IBOutlet weak var labelHeader : SPHeader!
     @IBOutlet weak var textFieldAmount : SPTextField!
     @IBOutlet weak var textFieldNote : SPTextField!
     @IBOutlet weak var buttonSelectCategory : SPSelectionButton!
     @IBOutlet weak var buttonSelectDateTime : SPSelectionButton!
     @IBOutlet weak var buttonSave : SPPrimaryButton!
-    @IBOutlet weak var buttonDashboard : SPButtonSquare!
-
-    var presenter : HomePresenter?
+    @IBOutlet weak var buttonDismiss : SPButtonSquare!
+    
+    var presenter : UpdateSpendingRecordPresenter?
+    
+    var recordID : String = ""
+    var onDataUpdated : (()->Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +30,10 @@ class HomeViewController: UIViewController {
     }
     
     private func setupPresenter() {
-        presenter = HomePresenterImpl()
+        presenter = UpdateSpendingRecordPresenterImpl()
         presenter?.mView = self
+        
+        presenter?.getSpendingRecordByID(id: recordID)
     }
     
     private func setupView() {
@@ -44,6 +48,9 @@ class HomeViewController: UIViewController {
         buttonSelectDateTime.text = "Select Time (Optional)"
         
         buttonSave.buttonText = "Save"
+        
+        buttonDismiss.image = #imageLiteral(resourceName: "ic_close_accent")
+        buttonDismiss.containerView.backgroundColor = UIColor.white
     }
 
     fileprivate func addActionListeners() {
@@ -55,7 +62,7 @@ class HomeViewController: UIViewController {
             
             var extraNotes = self.textFieldNote.textFieldInput.text ?? ""
             extraNotes = extraNotes.isEmpty ? "unknown" : extraNotes
-            self.presenter?.saveSpending(amount: Double(spentAmount) ?? 0, notes: extraNotes)
+            self.presenter?.updateRecord(amount: Double(spentAmount) ?? 0, notes: extraNotes)
         }
         
         buttonSelectCategory.onClick = {
@@ -114,8 +121,10 @@ class HomeViewController: UIViewController {
             }
         }
         
-        buttonDashboard.onClick = { _ in
-            self.present(SpendingHistoryViewController(), animated: true, completion: nil)
+
+        
+        buttonDismiss.onClick = { _ in
+            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -123,9 +132,23 @@ class HomeViewController: UIViewController {
         presenter?.dateTimeSelected(date: sender.date)
     }
 
+
 }
 
-extension HomeViewController : HomeView {
+extension UpdateSpendingViewController : UpdateSpendingRecordView {
+    func onDataNotFound(data: String) {
+        showAlert(message: data) { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func onSpendingRecordLoaded(data: SpendingRecord) {
+        textFieldAmount.textFieldInput.text = "\(Int(data.amount))"
+        textFieldNote.textFieldInput.text = data.notes
+        buttonSelectCategory.text = data.category.name
+        buttonSelectDateTime.text = DateTimeUtils.convertToString(date: data.dateTime)
+    }
+    
     
     func updateSelectedDateTime(data: String) {
         buttonSelectDateTime.text = data
@@ -139,8 +162,10 @@ extension HomeViewController : HomeView {
         
         textFieldAmount.textFieldInput.text = ""
         textFieldNote.textFieldInput.text = ""
+
+        onDataUpdated?()
         
-        showAlert(title: "Success", message: "New Spending Saved!")
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

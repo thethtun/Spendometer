@@ -39,6 +39,10 @@
 		51660B4D2580E66A007FABDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51660B4B2580E66A007FABDD /* Main.storyboard */; };
 		51660B4F2580E66E007FABDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51660B4E2580E66E007FABDD /* Assets.xcassets */; };
 		51660B522580E66E007FABDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51660B502580E66E007FABDD /* LaunchScreen.storyboard */; };
+		517E92CB2589262D0064700E /* SpendingHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E92CA2589262C0064700E /* SpendingHistoryPresenter.swift */; };
+		517E92CE258929040064700E /* DateTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E92CD258929040064700E /* DateTimeUtils.swift */; };
+		517E92D3258932A80064700E /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E92D2258932A70064700E /* DoubleExt.swift */; };
+		517E92D6258941770064700E /* UpdateSpendRecordPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E92D5258941770064700E /* UpdateSpendRecordPresenter.swift */; };
 		51C2100F25884398004152D6 /* AddCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C2100E25884398004152D6 /* AddCategoryPresenter.swift */; };
 		51CF95EC2587B47400C9BAB6 /* SpendingCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95EB2587B47400C9BAB6 /* SpendingCategory.swift */; };
 		51CF95EF2587B51D00C9BAB6 /* SpendingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95EE2587B51D00C9BAB6 /* SpendingRecord.swift */; };
@@ -85,6 +89,10 @@
 		51660B4E2580E66E007FABDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51660B512580E66E007FABDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51660B532580E66E007FABDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		517E92CA2589262C0064700E /* SpendingHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingHistoryPresenter.swift; sourceTree = "<group>"; };
+		517E92CD258929040064700E /* DateTimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeUtils.swift; sourceTree = "<group>"; };
+		517E92D2258932A70064700E /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		517E92D5258941770064700E /* UpdateSpendRecordPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSpendRecordPresenter.swift; sourceTree = "<group>"; };
 		51C2100E25884398004152D6 /* AddCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryPresenter.swift; sourceTree = "<group>"; };
 		51CF95EB2587B47400C9BAB6 /* SpendingCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategory.swift; sourceTree = "<group>"; };
 		51CF95EE2587B51D00C9BAB6 /* SpendingRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingRecord.swift; sourceTree = "<group>"; };
@@ -120,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				514725042584E98A00AD21F8 /* spendingHistory */,
-				514724FE2584E7C100AD21F8 /* updateCategory */,
+				514724FE2584E7C100AD21F8 /* updateSpendingRecord */,
 				514724F72584E5DE00AD21F8 /* addCategory */,
 				514724DE2584E0AA00AD21F8 /* categoryList */,
 				514724D72584DA2A00AD21F8 /* home */,
@@ -166,13 +174,13 @@
 			path = addCategory;
 			sourceTree = "<group>";
 		};
-		514724FE2584E7C100AD21F8 /* updateCategory */ = {
+		514724FE2584E7C100AD21F8 /* updateSpendingRecord */ = {
 			isa = PBXGroup;
 			children = (
 				514724FF2584E7DF00AD21F8 /* UpdateSpendingViewController.swift */,
 				514725002584E7DF00AD21F8 /* UpdateSpendingViewController.xib */,
 			);
-			path = updateCategory;
+			path = updateSpendingRecord;
 			sourceTree = "<group>";
 		};
 		514725042584E98A00AD21F8 /* spendingHistory */ = {
@@ -187,10 +195,10 @@
 		5148628F2584B8F5000853C6 /* components */ = {
 			isa = PBXGroup;
 			children = (
+				517E92D025892D150064700E /* SPHeader */,
 				514724CF2584D8A400AD21F8 /* SPButtonSquare */,
 				514862E12584D55D000853C6 /* SPSelectionButton */,
 				514862DA2584C6BB000853C6 /* SPTextField */,
-				514862902584B914000853C6 /* SPHeader.swift */,
 				5148629D2584BC3C000853C6 /* SPPrimaryButton */,
 				514862D32584C295000853C6 /* BaseViewPod.swift */,
 			);
@@ -262,6 +270,14 @@
 			path = Spendometer;
 			sourceTree = "<group>";
 		};
+		517E92D025892D150064700E /* SPHeader */ = {
+			isa = PBXGroup;
+			children = (
+				514862902584B914000853C6 /* SPHeader.swift */,
+			);
+			path = SPHeader;
+			sourceTree = "<group>";
+		};
 		51CF95EA2587B45C00C9BAB6 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +295,8 @@
 				51CF95F92587BBC400C9BAB6 /* BasePresenter.swift */,
 				51CF96042587CD4A00C9BAB6 /* CategoryListPresenter.swift */,
 				51C2100E25884398004152D6 /* AddCategoryPresenter.swift */,
+				517E92CA2589262C0064700E /* SpendingHistoryPresenter.swift */,
+				517E92D5258941770064700E /* UpdateSpendRecordPresenter.swift */,
 			);
 			path = presenters;
 			sourceTree = "<group>";
@@ -296,6 +314,8 @@
 			children = (
 				51CF95FE2587BCC100C9BAB6 /* DataPicker.swift */,
 				51CF96012587CB1300C9BAB6 /* ViewControllerExt.swift */,
+				517E92CD258929040064700E /* DateTimeUtils.swift */,
+				517E92D2258932A70064700E /* DoubleExt.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -384,6 +404,8 @@
 				51CF95F32587B5C600C9BAB6 /* HomePresenter.swift in Sources */,
 				514862912584B914000853C6 /* SPHeader.swift in Sources */,
 				514724E42584E0FA00AD21F8 /* CategoryListViewController.swift in Sources */,
+				517E92CB2589262D0064700E /* SpendingHistoryPresenter.swift in Sources */,
+				517E92D3258932A80064700E /* DoubleExt.swift in Sources */,
 				51660B4A2580E66A007FABDD /* ViewController.swift in Sources */,
 				514725012584E7DF00AD21F8 /* UpdateSpendingViewController.swift in Sources */,
 				514862952584B9E9000853C6 /* Font.swift in Sources */,
@@ -399,6 +421,7 @@
 				514724FA2584E5EC00AD21F8 /* AddNewCategoryViewController.swift in Sources */,
 				51CF96022587CB1300C9BAB6 /* ViewControllerExt.swift in Sources */,
 				51660B462580E66A007FABDD /* AppDelegate.swift in Sources */,
+				517E92D6258941770064700E /* UpdateSpendRecordPresenter.swift in Sources */,
 				51CF96052587CD4A00C9BAB6 /* CategoryListPresenter.swift in Sources */,
 				51CF95EF2587B51D00C9BAB6 /* SpendingRecord.swift in Sources */,
 				514724F22584E25500AD21F8 /* CategoryListCell.swift in Sources */,
@@ -408,6 +431,7 @@
 				51CF95EC2587B47400C9BAB6 /* SpendingCategory.swift in Sources */,
 				5147250D2584EB2300AD21F8 /* SpendingHistoryItemCell.swift in Sources */,
 				51CF95F62587BB9B00C9BAB6 /* DBManager.swift in Sources */,
+				517E92CE258929040064700E /* DateTimeUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

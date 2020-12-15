@@ -13,13 +13,14 @@ protocol DBManager {
     func updateSpendingRecord(data : SpendingRecord, success: @escaping () -> Void, fail: @escaping (String) -> Void)
     func getSpendingRecords(success: @escaping ([SpendingRecord]) -> Void, fail: @escaping (String) -> Void)
     func getSpendingRecordByID(id : String,success: @escaping (SpendingRecord?) -> Void, fail: @escaping (String) -> Void)
+    func getSpendingRecordByDate(date : Date,success: @escaping ([SpendingRecord]) -> Void, fail: @escaping (String) -> Void)
     
     func saveSpendingCategory(data : SpendingCategory, success: @escaping () -> Void, fail: @escaping (String) -> Void)
     func deleteSpendingCategory(id : String, success: @escaping () -> Void, fail: @escaping (String) -> Void)
     func updateSpendingCategory(data : SpendingCategory, success: @escaping () -> Void, fail: @escaping (String) -> Void)
     func getSpendingCategory(success: @escaping ([SpendingCategory]) -> Void, fail: @escaping (String) -> Void)
     func getSpendingCategoryByID(name : String, success: @escaping ([SpendingCategory]) -> Void, fail: @escaping (String) -> Void)
-    
+ 
 }
 
 class DBManagerImpl : DBManager {
@@ -54,6 +55,10 @@ class DBManagerImpl : DBManager {
     
     
     //MARK: - SpendingRecord
+    func getSpendingRecordByDate(date : Date,success: @escaping ([SpendingRecord]) -> Void, fail: @escaping (String) -> Void) {
+        success(TempDatabase.spendingRecordList.filter{DateTimeUtils.compareTwoDates(date1: $0.dateTime, date2: date)})
+    }
+    
     func saveSpendingRecord(data: SpendingRecord, success: @escaping () -> Void, fail: @escaping (String) -> Void) {
         TempDatabase.spendingRecordList.append(data)
         success()

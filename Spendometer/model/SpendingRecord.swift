@@ -8,7 +8,7 @@
 import Foundation
 
 struct SpendingRecord {
-    let id : String = UUID().uuidString
+    var id : String = UUID().uuidString
     let dateTime : Date
     let category : SpendingCategory
     let createdAt : Date

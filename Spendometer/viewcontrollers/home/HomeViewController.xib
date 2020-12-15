@@ -44,7 +44,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ybt-cc-Npa">
-                            <rect key="frame" x="35" y="231.5" width="344" height="295"/>
+                            <rect key="frame" x="35" y="256.5" width="344" height="245"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJF-qr-4oK" customClass="SPTextField" customModule="Spendometer" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="344" height="50"/>
@@ -54,21 +54,21 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhP-Ow-7yS" customClass="SPTextField" customModule="Spendometer" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="65" width="344" height="100"/>
+                                    <rect key="frame" x="0.0" y="65" width="344" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="100" id="rrt-oF-Dkw"/>
+                                        <constraint firstAttribute="height" constant="50" id="rrt-oF-Dkw"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gza-fQ-r8h" customClass="SPSelectionButton" customModule="Spendometer" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="180" width="344" height="50"/>
+                                    <rect key="frame" x="0.0" y="130" width="344" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="6P2-a4-vsG"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yaj-d8-7tc" customClass="SPSelectionButton" customModule="Spendometer" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="245" width="344" height="50"/>
+                                    <rect key="frame" x="0.0" y="195" width="344" height="50"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="kZc-0w-sgG"/>
@@ -77,7 +77,7 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKy-dw-1C9" customClass="SPPrimaryButton" customModule="Spendometer" customModuleProvider="target">
-                            <rect key="frame" x="87" y="556.5" width="240" height="60"/>
+                            <rect key="frame" x="87" y="531.5" width="240" height="60"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="60" id="gcH-1T-T7r"/>

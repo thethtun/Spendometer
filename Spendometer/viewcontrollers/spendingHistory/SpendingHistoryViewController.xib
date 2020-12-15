@@ -15,6 +15,7 @@
                 <outlet property="buttonSelectDate" destination="w7A-qy-Ahg" id="8JA-xN-33w"/>
                 <outlet property="collectionView" destination="Wxl-Io-eQI" id="Www-fh-V2t"/>
                 <outlet property="labelAmount" destination="HBD-Sh-AlO" id="wQu-AB-O1K"/>
+                <outlet property="labelEmptyListView" destination="fg2-E7-9qj" id="3o4-LK-JjB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -91,6 +92,12 @@
                                 <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                             </collectionViewFlowLayout>
                         </collectionView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Spending History Found!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fg2-E7-9qj">
+                            <rect key="frame" x="20" y="281" width="374" height="18.5"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Wxl-Io-eQI" secondAttribute="trailing" id="3jK-XJ-dgw"/>
@@ -104,6 +111,9 @@
                         <constraint firstItem="gMK-9G-0kY" firstAttribute="top" secondItem="XQ3-oU-zK0" secondAttribute="bottom" constant="35" id="jaF-G0-22a"/>
                         <constraint firstItem="XQ3-oU-zK0" firstAttribute="top" secondItem="w7A-qy-Ahg" secondAttribute="bottom" constant="20" id="jxf-mc-q8W"/>
                         <constraint firstItem="kTh-JR-pFD" firstAttribute="top" secondItem="Wxl-Io-eQI" secondAttribute="bottom" constant="15" id="kD9-3d-jGV"/>
+                        <constraint firstItem="fg2-E7-9qj" firstAttribute="leading" secondItem="4be-wY-tSZ" secondAttribute="leading" constant="20" id="mWu-gc-rlE"/>
+                        <constraint firstAttribute="trailing" secondItem="fg2-E7-9qj" secondAttribute="trailing" constant="20" id="sJf-aa-LAk"/>
+                        <constraint firstItem="fg2-E7-9qj" firstAttribute="top" secondItem="Wxl-Io-eQI" secondAttribute="top" constant="20" id="x86-rc-MKS"/>
                         <constraint firstItem="kTh-JR-pFD" firstAttribute="centerX" secondItem="4be-wY-tSZ" secondAttribute="centerX" id="z1d-iz-A3C"/>
                         <constraint firstItem="w7A-qy-Ahg" firstAttribute="top" secondItem="4be-wY-tSZ" secondAttribute="top" constant="15" id="z7p-dk-dCg"/>
                     </constraints>
