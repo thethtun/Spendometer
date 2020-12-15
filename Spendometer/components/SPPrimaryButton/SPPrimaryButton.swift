@@ -41,11 +41,10 @@ class SPPrimaryButton: BaseViewPod {
         layer.cornerRadius = 18
         layer.masksToBounds = true
         
-        let tap = UIGestureRecognizer(target: self, action: #selector(onClickButton(_:)))
-        addGestureRecognizer(tap)
     }
     
-    @objc func onClickButton(_ sender : Any) {
+    @IBAction func onClickButton(_ sender : Any) {
         onClick?()
     }
+    
 }

@@ -23,7 +23,7 @@ class SpendingHistoryViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupView()
         
-        buttonDismiss.onClick = {
+        buttonDismiss.onClick = { _ in 
             self.dismiss(animated: true, completion: nil)
         }
     }

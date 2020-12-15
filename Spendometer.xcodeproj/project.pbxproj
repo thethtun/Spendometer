@@ -39,6 +39,15 @@
 		51660B4D2580E66A007FABDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51660B4B2580E66A007FABDD /* Main.storyboard */; };
 		51660B4F2580E66E007FABDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51660B4E2580E66E007FABDD /* Assets.xcassets */; };
 		51660B522580E66E007FABDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51660B502580E66E007FABDD /* LaunchScreen.storyboard */; };
+		51C2100F25884398004152D6 /* AddCategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C2100E25884398004152D6 /* AddCategoryPresenter.swift */; };
+		51CF95EC2587B47400C9BAB6 /* SpendingCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95EB2587B47400C9BAB6 /* SpendingCategory.swift */; };
+		51CF95EF2587B51D00C9BAB6 /* SpendingRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95EE2587B51D00C9BAB6 /* SpendingRecord.swift */; };
+		51CF95F32587B5C600C9BAB6 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95F22587B5C600C9BAB6 /* HomePresenter.swift */; };
+		51CF95F62587BB9B00C9BAB6 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95F52587BB9B00C9BAB6 /* DBManager.swift */; };
+		51CF95FA2587BBC400C9BAB6 /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95F92587BBC400C9BAB6 /* BasePresenter.swift */; };
+		51CF95FF2587BCC100C9BAB6 /* DataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95FE2587BCC100C9BAB6 /* DataPicker.swift */; };
+		51CF96022587CB1300C9BAB6 /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF96012587CB1300C9BAB6 /* ViewControllerExt.swift */; };
+		51CF96052587CD4A00C9BAB6 /* CategoryListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF96042587CD4A00C9BAB6 /* CategoryListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +85,15 @@
 		51660B4E2580E66E007FABDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51660B512580E66E007FABDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51660B532580E66E007FABDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51C2100E25884398004152D6 /* AddCategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryPresenter.swift; sourceTree = "<group>"; };
+		51CF95EB2587B47400C9BAB6 /* SpendingCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingCategory.swift; sourceTree = "<group>"; };
+		51CF95EE2587B51D00C9BAB6 /* SpendingRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingRecord.swift; sourceTree = "<group>"; };
+		51CF95F22587B5C600C9BAB6 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		51CF95F52587BB9B00C9BAB6 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		51CF95F92587BBC400C9BAB6 /* BasePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		51CF95FE2587BCC100C9BAB6 /* DataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPicker.swift; sourceTree = "<group>"; };
+		51CF96012587CB1300C9BAB6 /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
+		51CF96042587CD4A00C9BAB6 /* CategoryListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +243,9 @@
 		51660B442580E66A007FABDD /* Spendometer */ = {
 			isa = PBXGroup;
 			children = (
+				51CF95FD2587BCB700C9BAB6 /* utils */,
+				51CF95F12587B5B600C9BAB6 /* presenters */,
+				51CF95EA2587B45C00C9BAB6 /* model */,
 				514724E72584E21900AD21F8 /* cells */,
 				514724D62584DA1900AD21F8 /* viewcontrollers */,
 				5148628F2584B8F5000853C6 /* components */,
@@ -239,6 +260,44 @@
 				514862942584B9E9000853C6 /* Font.swift */,
 			);
 			path = Spendometer;
+			sourceTree = "<group>";
+		};
+		51CF95EA2587B45C00C9BAB6 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				51CF95F82587BBB100C9BAB6 /* db */,
+				51CF95EB2587B47400C9BAB6 /* SpendingCategory.swift */,
+				51CF95EE2587B51D00C9BAB6 /* SpendingRecord.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		51CF95F12587B5B600C9BAB6 /* presenters */ = {
+			isa = PBXGroup;
+			children = (
+				51CF95F22587B5C600C9BAB6 /* HomePresenter.swift */,
+				51CF95F92587BBC400C9BAB6 /* BasePresenter.swift */,
+				51CF96042587CD4A00C9BAB6 /* CategoryListPresenter.swift */,
+				51C2100E25884398004152D6 /* AddCategoryPresenter.swift */,
+			);
+			path = presenters;
+			sourceTree = "<group>";
+		};
+		51CF95F82587BBB100C9BAB6 /* db */ = {
+			isa = PBXGroup;
+			children = (
+				51CF95F52587BB9B00C9BAB6 /* DBManager.swift */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
+		51CF95FD2587BCB700C9BAB6 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				51CF95FE2587BCC100C9BAB6 /* DataPicker.swift */,
+				51CF96012587CB1300C9BAB6 /* ViewControllerExt.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51CF95F32587B5C600C9BAB6 /* HomePresenter.swift in Sources */,
 				514862912584B914000853C6 /* SPHeader.swift in Sources */,
 				514724E42584E0FA00AD21F8 /* CategoryListViewController.swift in Sources */,
 				51660B4A2580E66A007FABDD /* ViewController.swift in Sources */,
@@ -332,14 +392,22 @@
 				514725072584E99F00AD21F8 /* SpendingHistoryViewController.swift in Sources */,
 				514862DF2584C6D2000853C6 /* SPTextField.swift in Sources */,
 				5148628D2584B57C000853C6 /* Colors.swift in Sources */,
+				51CF95FF2587BCC100C9BAB6 /* DataPicker.swift in Sources */,
+				51CF95FA2587BBC400C9BAB6 /* BasePresenter.swift in Sources */,
 				5148629B2584BC35000853C6 /* SPPrimaryButton.swift in Sources */,
 				514862D82584C391000853C6 /* BaseViewPod.swift in Sources */,
 				514724FA2584E5EC00AD21F8 /* AddNewCategoryViewController.swift in Sources */,
+				51CF96022587CB1300C9BAB6 /* ViewControllerExt.swift in Sources */,
 				51660B462580E66A007FABDD /* AppDelegate.swift in Sources */,
+				51CF96052587CD4A00C9BAB6 /* CategoryListPresenter.swift in Sources */,
+				51CF95EF2587B51D00C9BAB6 /* SpendingRecord.swift in Sources */,
 				514724F22584E25500AD21F8 /* CategoryListCell.swift in Sources */,
 				51660B482580E66A007FABDD /* SceneDelegate.swift in Sources */,
 				514724DA2584DA3600AD21F8 /* HomeViewController.swift in Sources */,
+				51C2100F25884398004152D6 /* AddCategoryPresenter.swift in Sources */,
+				51CF95EC2587B47400C9BAB6 /* SpendingCategory.swift in Sources */,
 				5147250D2584EB2300AD21F8 /* SpendingHistoryItemCell.swift in Sources */,
+				51CF95F62587BB9B00C9BAB6 /* DBManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

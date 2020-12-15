@@ -19,7 +19,7 @@ class SPButtonSquare: BaseViewPod {
         }
     }
     
-    var onClick : (()->Void)?
+    var onClick : ((_ sender : UIButton)->Void)?
     
     override func commonInit() {
         loadNib(with: SPButtonSquare.self).instantiate(withOwner: self, options: nil)
@@ -35,8 +35,8 @@ class SPButtonSquare: BaseViewPod {
         layer.masksToBounds = true
     }
     
-    @IBAction func onClickAction(_ sender : Any) {
-        onClick?()
+    @IBAction func onClickAction(_ sender : UIButton) {
+        onClick?(sender)
     }
     
 }

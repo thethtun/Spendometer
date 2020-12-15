@@ -32,7 +32,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ndc-VO-Gjr">
-                            <rect key="frame" x="54" y="15" width="246" height="20"/>
+                            <rect key="frame" x="15" y="15" width="285" height="20"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -47,8 +47,8 @@
                     <color key="backgroundColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstItem="ndc-VO-Gjr" firstAttribute="top" secondItem="IQa-Aj-117" secondAttribute="top" constant="15" id="AmQ-G7-2dL"/>
+                        <constraint firstItem="ndc-VO-Gjr" firstAttribute="centerX" secondItem="IQa-Aj-117" secondAttribute="centerX" id="DcQ-Lj-4NC"/>
                         <constraint firstItem="VoO-Q6-lmc" firstAttribute="top" secondItem="IQa-Aj-117" secondAttribute="top" id="QgI-kN-ch4"/>
-                        <constraint firstItem="ndc-VO-Gjr" firstAttribute="leading" secondItem="23G-BR-Pmq" secondAttribute="trailing" constant="15" id="WrS-6G-L0T"/>
                         <constraint firstAttribute="bottom" secondItem="VoO-Q6-lmc" secondAttribute="bottom" id="Y5p-gV-skS"/>
                         <constraint firstAttribute="trailing" secondItem="VoO-Q6-lmc" secondAttribute="trailing" id="e87-KO-9P5"/>
                         <constraint firstAttribute="bottom" secondItem="ndc-VO-Gjr" secondAttribute="bottom" constant="15" id="jsp-77-Taw"/>

@@ -14,12 +14,23 @@ class CategoryListViewController: UIViewController {
     @IBOutlet weak var buttonDismiss : SPButtonSquare!
     @IBOutlet weak var textFieldSearch : SPTextField!
     
+    var presenter : CategoryListPresenter?
+    var onCategorySelected : ((SpendingCategory)->Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupView()
         setupActionListeners()
+        setupPresenter()
+    }
+    
+    private func setupPresenter() {
+        presenter = CategoryListPresenterImpl()
+        presenter?.mView = self
+        
+        presenter?.fetchCategoryList()
     }
     
     private func setupView() {
@@ -35,12 +46,20 @@ class CategoryListViewController: UIViewController {
 
    
     private func setupActionListeners() {
-        buttonAddCategory.onClick = {
-            self.present(AddNewCategoryViewController(), animated: true, completion: nil)
+        buttonAddCategory.onClick = { _ in
+            let vc = AddNewCategoryViewController()
+            vc.onNewCategorySaved = { _ in
+                self.presenter?.fetchCategoryList()
+            }
+            self.present(vc, animated: true, completion: nil)
         }
         
-        buttonDismiss.onClick = {
+        buttonDismiss.onClick = { _ in
             self.dismiss(animated: true, completion: nil)
+        }
+        
+        textFieldSearch.onTextEndEditing = { data in
+            self.presenter?.searchCategory(name: data ?? "")
         }
         
     }
@@ -59,24 +78,35 @@ class CategoryListViewController: UIViewController {
 
 }
 
+//MARK: - UICollectionViewDelegate,UICollectionViewDataSource
 extension CategoryListViewController:UICollectionViewDelegate,UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 10
+        return self.presenter?.categoryList.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: CategoryListCell.self), for: indexPath) as? CategoryListCell else { return UICollectionViewCell() }
         
+        cell.data = self.presenter?.categoryList[indexPath.row]
+        
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let data = self.presenter?.categoryList[indexPath.row] {
+            onCategorySelected?(data)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     
 }
 
+//MARK: - UICollectionViewDelegateFlowLayout
 extension CategoryListViewController:UICollectionViewDelegateFlowLayout{
     
     
@@ -92,6 +122,20 @@ extension CategoryListViewController:UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    
+}
+
+//MARK: - CategoryListView
+extension CategoryListViewController : CategoryListView {
+    
+    func onCategoryListReady(data: [SpendingCategory]) {
+        collectionViewCategoryList.reloadData()
+    }
+    
+    func onError(error: String) {
+        self.showAlert(message: error)
     }
     
     

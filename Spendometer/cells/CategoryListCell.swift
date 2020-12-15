@@ -11,6 +11,14 @@ class CategoryListCell: UICollectionViewCell {
 
     @IBOutlet weak var labelText : UILabel!
     
+    var data : SpendingCategory? {
+        didSet {
+            if let data = data {
+                labelText.text = data.name
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

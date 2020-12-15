@@ -53,7 +53,7 @@ class UpdateSpendingViewController: UIViewController {
             
         }
         
-        buttonDismiss.onClick = {
+        buttonDismiss.onClick = { _ in
             self.dismiss(animated: true, completion: nil)
         }
     }

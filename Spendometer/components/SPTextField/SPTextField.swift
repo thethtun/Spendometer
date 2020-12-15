@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 class SPTextField: BaseViewPod, UITextFieldDelegate {
-
+    
     @IBOutlet weak var containerView : UIView!
     @IBOutlet weak var textFieldInput : UITextField!
     
@@ -19,6 +19,8 @@ class SPTextField: BaseViewPod, UITextFieldDelegate {
             textFieldInput.placeholder = placeholderText
         }
     }
+    
+    var onTextEndEditing : ((String?)->Void)?
     
     override func commonInit() {
         loadNib(with: SPTextField.self).instantiate(withOwner: self, options: nil)
@@ -34,16 +36,23 @@ class SPTextField: BaseViewPod, UITextFieldDelegate {
         
         textFieldInput.borderStyle = .none
         textFieldInput.font = UIFont(name: SPFont.Futura.Medium, size: 18)
-//        textFieldInput.textColor = SPColor.Text.primaryInfo
+        //        textFieldInput.textColor = SPColor.Text.primaryInfo
+        textFieldInput.delegate = self
+        textFieldInput.attributedPlaceholder =
+            NSAttributedString(string: placeholderText,
+                               attributes: [
+                                NSAttributedString.Key.foregroundColor: SPColor.Text.hint ,
+                                NSAttributedString.Key.font: UIFont(name: SPFont.Futura.Medium, size: 18) ?? UIFont.systemFont(ofSize: 18),
+                               ])
         
-        textFieldInput.attributedPlaceholder = NSAttributedString(string: placeholderText,
-                                                                  attributes: [
-                                                                    NSAttributedString.Key.foregroundColor: SPColor.Text.hint ?? UIColor.gray,
-                                                                    NSAttributedString.Key.font: UIFont(name: SPFont.Futura.Medium, size: 18) ?? UIFont.systemFont(ofSize: 18),
-                                                                  ])
+        textFieldInput.addTarget(self, action: #selector(onTextChanged), for: .editingChanged)
     }
     
-   
+    
+    @objc func onTextChanged(_ textField : UITextField) {
+        onTextEndEditing?(textField.text)
+    }
+    
+    
 }
-
 
