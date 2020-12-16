@@ -52,9 +52,12 @@
 		51CF95FF2587BCC100C9BAB6 /* DataPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF95FE2587BCC100C9BAB6 /* DataPicker.swift */; };
 		51CF96022587CB1300C9BAB6 /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF96012587CB1300C9BAB6 /* ViewControllerExt.swift */; };
 		51CF96052587CD4A00C9BAB6 /* CategoryListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51CF96042587CD4A00C9BAB6 /* CategoryListPresenter.swift */; };
+		E5BC47FFAB41C62F79F20115 /* Pods_Spendometer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C0F3F27F5391D227637CA1 /* Pods_Spendometer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0EE434225B6EEED5AF60DAAD /* Pods-Spendometer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spendometer.release.xcconfig"; path = "Target Support Files/Pods-Spendometer/Pods-Spendometer.release.xcconfig"; sourceTree = "<group>"; };
+		10C0F3F27F5391D227637CA1 /* Pods_Spendometer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spendometer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		514724D02584D8BF00AD21F8 /* SPButtonSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButtonSquare.swift; sourceTree = "<group>"; };
 		514724D32584D8C500AD21F8 /* SPButtonSquare.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SPButtonSquare.xib; sourceTree = "<group>"; };
 		514724D82584DA3600AD21F8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		51CF95FE2587BCC100C9BAB6 /* DataPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPicker.swift; sourceTree = "<group>"; };
 		51CF96012587CB1300C9BAB6 /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
 		51CF96042587CD4A00C9BAB6 /* CategoryListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenter.swift; sourceTree = "<group>"; };
+		72612E6EDAF8FFD29C244C51 /* Pods-Spendometer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spendometer.debug.xcconfig"; path = "Target Support Files/Pods-Spendometer/Pods-Spendometer.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +113,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5BC47FFAB41C62F79F20115 /* Pods_Spendometer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E857E011EC71A81F0AFF9FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10C0F3F27F5391D227637CA1 /* Pods_Spendometer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		514724CF2584D8A400AD21F8 /* SPButtonSquare */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +250,8 @@
 			children = (
 				51660B442580E66A007FABDD /* Spendometer */,
 				51660B432580E66A007FABDD /* Products */,
+				9598EDEB04089448DDCF13BC /* Pods */,
+				4E857E011EC71A81F0AFF9FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,6 +335,16 @@
 			path = utils;
 			sourceTree = "<group>";
 		};
+		9598EDEB04089448DDCF13BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72612E6EDAF8FFD29C244C51 /* Pods-Spendometer.debug.xcconfig */,
+				0EE434225B6EEED5AF60DAAD /* Pods-Spendometer.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,9 +352,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51660B562580E66E007FABDD /* Build configuration list for PBXNativeTarget "Spendometer" */;
 			buildPhases = (
+				2351347E00B7AFE3FA57D83D /* [CP] Check Pods Manifest.lock */,
 				51660B3E2580E66A007FABDD /* Sources */,
 				51660B3F2580E66A007FABDD /* Frameworks */,
 				51660B402580E66A007FABDD /* Resources */,
+				A33CF239C50F22DC1671831B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -395,6 +422,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2351347E00B7AFE3FA57D83D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Spendometer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A33CF239C50F22DC1671831B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spendometer/Pods-Spendometer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Spendometer/Pods-Spendometer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Spendometer/Pods-Spendometer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		51660B3E2580E66A007FABDD /* Sources */ = {
@@ -575,6 +644,7 @@
 		};
 		51660B572580E66E007FABDD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72612E6EDAF8FFD29C244C51 /* Pods-Spendometer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -594,6 +664,7 @@
 		};
 		51660B582580E66E007FABDD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0EE434225B6EEED5AF60DAAD /* Pods-Spendometer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -42,6 +42,7 @@ class CategoryListViewController: UIViewController {
         textFieldSearch.placeholderText = "Search Category"
         
         setUpCollectionView()
+        
     }
 
    

@@ -94,6 +94,7 @@ class SpendingHistoryViewController: UIViewController {
         
         buttonSelectDate.text = DateTimeUtils.convertToString(date: Date(), format: "dd/MM/yyyy")
 
+        
     }
     
     private func setupCollectionView() {

@@ -41,6 +41,8 @@ class AddNewCategoryViewController: UIViewController {
         buttonDismiss.image = #imageLiteral(resourceName: "ic_close_accent")
         
         textFieldCategoryName.placeholderText = "Enter Category Name"
+        
+        
     }
     
     private func setupActionListeners() {

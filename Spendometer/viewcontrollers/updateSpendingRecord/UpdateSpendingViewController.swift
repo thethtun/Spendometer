@@ -51,6 +51,8 @@ class UpdateSpendingViewController: UIViewController {
         
         buttonDismiss.image = #imageLiteral(resourceName: "ic_close_accent")
         buttonDismiss.containerView.backgroundColor = UIColor.white
+        
+        
     }
 
     fileprivate func addActionListeners() {

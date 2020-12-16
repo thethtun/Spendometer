@@ -48,8 +48,9 @@ class DBManagerImpl : DBManager {
     }
     
     func getSpendingCategoryByID(name : String, success: @escaping ([SpendingCategory]) -> Void, fail: @escaping (String) -> Void) {
-        let result = TempDatabase.categoryList.filter{$0.name.contains(name)}
-        result.isEmpty ? fail("No data found with name \(name)") : success(result)
+        let result = TempDatabase.categoryList.filter{$0.name.lowercased().contains(name.lowercased())}
+        success(result)
+//        result.isEmpty ? fail("No data found with name \(name)") : success(result)
     }
     
     

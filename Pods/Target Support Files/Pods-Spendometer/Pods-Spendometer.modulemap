@@ -1,0 +1,6 @@
+framework module Pods_Spendometer {
+  umbrella header "Pods-Spendometer-umbrella.h"
+
+  export *
+  module * { export * }
+}
