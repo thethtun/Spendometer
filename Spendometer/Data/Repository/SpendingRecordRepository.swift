@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 protocol SpendingRecordRepository {
     func saveSpendingRecord(data : SpendingRecord, success: @escaping () -> Void, fail: @escaping (String) -> Void)
@@ -23,31 +24,110 @@ class SpendingRecordRepositoryImpl: BaseRepository, SpendingRecordRepository {
     private override init() { }
     
     func getSpendingRecordByDate(date : Date, success: @escaping ([SpendingRecord]) -> Void, fail: @escaping (String) -> Void) {
-        success(db.spendingRecordList.filter{DateTimeUtils.compareTwoDates(date1: $0.dateTime, date2: date)})
+        let fetchRequest : NSFetchRequest<SpendingRecordEntity> = SpendingRecordEntity.fetchRequest()
+
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+
+        let fromDate = calendar.startOfDay(for: date)
+
+        let toDate = calendar.date(byAdding: .day, value: 1, to: fromDate)!
+        fetchRequest.predicate = NSPredicate(format: "dateTime >= %@ AND dateTime < %@", fromDate as NSDate, toDate as NSDate)
+
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "createdAt", ascending: false) // last row first
+        ]
+        
+        do {
+            let data = try coreDataDB.persistentContainer.viewContext.fetch(fetchRequest)
+            success(data.map { SpendingRecordEntity.toSpendingRecord(data: $0) } )
+        } catch {
+            print(handleCoreDataError(error))
+            fail(error.localizedDescription)
+        }
+        
     }
     
     func saveSpendingRecord(data: SpendingRecord, success: @escaping () -> Void, fail: @escaping (String) -> Void) {
-        db.spendingRecordList.append(data)
-        success()
+        let _ = data.toSpendingRecordEntity(
+            entity: SpendingRecordEntity(context: coreDataDB.context),
+            context: coreDataDB.persistentContainer.viewContext)
+        
+        do {
+            try coreDataDB.context.save()
+            success()
+        } catch {
+            print(handleCoreDataError(error))
+            fail(error.localizedDescription)
+        }
     }
     
     func deleteSpendingRecord(id: String, success: @escaping () -> Void, fail: @escaping (String) -> Void) {
-        db.spendingRecordList = db.spendingRecordList.filter{$0.id != id}
-        success()
+        let fetchRequest : NSFetchRequest<SpendingRecordEntity> = SpendingRecordEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", "id", id)
+        
+        do {
+            let data = try coreDataDB.context.fetch(fetchRequest)
+            data.forEach{ coreDataDB.context.delete($0) }
+            
+            try coreDataDB.context.save()
+            success()
+        } catch {
+            print(handleCoreDataError(error))
+            fail(error.localizedDescription)
+        }
     }
     
     func updateSpendingRecord(data: SpendingRecord, success: @escaping () -> Void, fail: @escaping (String) -> Void) {
-        db.spendingRecordList = db.spendingRecordList.map{
-            $0.id == data.id ? data : $0
+        let fetchRequest : NSFetchRequest<SpendingRecordEntity> = SpendingRecordEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", "id", data.id)
+        
+        do {
+            let result = try coreDataDB.context.fetch(fetchRequest)
+            if let entity = result.first {
+                let _ = data.toSpendingRecordEntity(entity: entity, context: coreDataDB.context)
+                
+                try coreDataDB.context.save()
+                success()
+            } else {
+                fail(DBError.failedToUpdateEmptyItem.rawValue)
+            }
+            
+        } catch {
+            print(handleCoreDataError(error))
+            fail(error.localizedDescription)
         }
-        success()
     }
     
     func getSpendingRecords(success: @escaping ([SpendingRecord]) -> Void, fail: @escaping (String) -> Void) {
-        success(db.spendingRecordList)
+        let fetchRequest : NSFetchRequest<SpendingRecordEntity> = SpendingRecordEntity.fetchRequest()
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "createdAt", ascending: false) // last row first
+        ]
+        
+        do {
+            let data = try coreDataDB.persistentContainer.viewContext.fetch(fetchRequest)
+            success(data.map { SpendingRecordEntity.toSpendingRecord(data: $0) } )
+        } catch {
+            print(handleCoreDataError(error))
+            fail(error.localizedDescription)
+        }
     }
     
     func getSpendingRecordByID(id: String, success: @escaping (SpendingRecord?) -> Void, fail: @escaping (String) -> Void) {
-        success(db.spendingRecordList.filter{$0.id == id}.first)
+        let fetchRequest : NSFetchRequest<SpendingRecordEntity> = SpendingRecordEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K = %@", "id", id)
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: "createdAt", ascending: false) // last row first
+        ]
+        
+        do {
+            let data = try coreDataDB.persistentContainer.viewContext.fetch(fetchRequest)
+            success(data.map { SpendingRecordEntity.toSpendingRecord(data: $0) }.first )
+        } catch {
+            print(handleCoreDataError(error))
+            fail(error.localizedDescription)
+        }
+        
     }
 }

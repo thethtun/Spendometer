@@ -50,23 +50,3 @@ class CategoryListPresenterImpl : BasePresenterImpl, CategoryListPresenter {
     }
     
 }
-
-
-//
-//protocol CategoryListView : BaseView {
-//
-//}
-//
-//protocol CategoryListPresenter {
-//    var mView : CategoryListView? { get set }
-//
-//
-//}
-//
-//
-//class CategoryListPresenterImpl : BasePresenterImpl, CategoryListPresenter {
-//
-//    var mView : CategoryListView?
-//
-//
-//}

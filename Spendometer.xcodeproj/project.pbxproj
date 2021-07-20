@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512D951A26A601EE00CEC4D6 /* Spendometer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 512D951826A601EE00CEC4D6 /* Spendometer.xcdatamodeld */; };
+		512D951D26A602DE00CEC4D6 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512D951C26A602DE00CEC4D6 /* CoreDataStack.swift */; };
 		514724D12584D8BF00AD21F8 /* SPButtonSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514724D02584D8BF00AD21F8 /* SPButtonSquare.swift */; };
 		514724D42584D8C500AD21F8 /* SPButtonSquare.xib in Resources */ = {isa = PBXBuildFile; fileRef = 514724D32584D8C500AD21F8 /* SPButtonSquare.xib */; };
 		514724DA2584DA3600AD21F8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 514724D82584DA3600AD21F8 /* HomeViewController.swift */; };
@@ -37,6 +39,9 @@
 		51660B482580E66A007FABDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51660B472580E66A007FABDD /* SceneDelegate.swift */; };
 		51660B4F2580E66E007FABDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 51660B4E2580E66E007FABDD /* Assets.xcassets */; };
 		51660B522580E66E007FABDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 51660B502580E66E007FABDD /* LaunchScreen.storyboard */; };
+		5166F61D26A6DCE8008B334A /* SpendingCategoryEntity+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166F61C26A6DCE8008B334A /* SpendingCategoryEntity+Extension.swift */; };
+		5166F62326A70EC6008B334A /* DBError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166F62226A70EC6008B334A /* DBError.swift */; };
+		5166F62626A718F4008B334A /* SpendingRecordingEntity+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5166F62526A718F4008B334A /* SpendingRecordingEntity+Extension.swift */; };
 		517E92CB2589262D0064700E /* SpendingHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E92CA2589262C0064700E /* SpendingHistoryPresenter.swift */; };
 		517E92CE258929040064700E /* DateTimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E92CD258929040064700E /* DateTimeUtils.swift */; };
 		517E92D3258932A80064700E /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E92D2258932A70064700E /* DoubleExt.swift */; };
@@ -62,6 +67,8 @@
 /* Begin PBXFileReference section */
 		0EE434225B6EEED5AF60DAAD /* Pods-Spendometer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spendometer.release.xcconfig"; path = "Target Support Files/Pods-Spendometer/Pods-Spendometer.release.xcconfig"; sourceTree = "<group>"; };
 		10C0F3F27F5391D227637CA1 /* Pods_Spendometer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spendometer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		512D951926A601EE00CEC4D6 /* Spendometer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spendometer.xcdatamodel; sourceTree = "<group>"; };
+		512D951C26A602DE00CEC4D6 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		514724D02584D8BF00AD21F8 /* SPButtonSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButtonSquare.swift; sourceTree = "<group>"; };
 		514724D32584D8C500AD21F8 /* SPButtonSquare.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SPButtonSquare.xib; sourceTree = "<group>"; };
 		514724D82584DA3600AD21F8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +101,9 @@
 		51660B4E2580E66E007FABDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		51660B512580E66E007FABDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		51660B532580E66E007FABDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5166F61C26A6DCE8008B334A /* SpendingCategoryEntity+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpendingCategoryEntity+Extension.swift"; sourceTree = "<group>"; };
+		5166F62226A70EC6008B334A /* DBError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBError.swift; sourceTree = "<group>"; };
+		5166F62526A718F4008B334A /* SpendingRecordingEntity+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpendingRecordingEntity+Extension.swift"; sourceTree = "<group>"; };
 		517E92CA2589262C0064700E /* SpendingHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingHistoryPresenter.swift; sourceTree = "<group>"; };
 		517E92CD258929040064700E /* DateTimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeUtils.swift; sourceTree = "<group>"; };
 		517E92D2258932A70064700E /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
@@ -134,6 +144,17 @@
 				10C0F3F27F5391D227637CA1 /* Pods_Spendometer.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5124C1A126A60A8000E1F27D /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				512D951C26A602DE00CEC4D6 /* CoreDataStack.swift */,
+				5166F61C26A6DCE8008B334A /* SpendingCategoryEntity+Extension.swift */,
+				5166F62526A718F4008B334A /* SpendingRecordingEntity+Extension.swift */,
+				5166F62226A70EC6008B334A /* DBError.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		514724CF2584D8A400AD21F8 /* SPButtonSquare */ = {
@@ -274,6 +295,7 @@
 		51660B442580E66A007FABDD /* Spendometer */ = {
 			isa = PBXGroup;
 			children = (
+				5124C1A126A60A8000E1F27D /* CoreData */,
 				51CF95FD2587BCB700C9BAB6 /* Utils */,
 				51CF95F12587B5B600C9BAB6 /* Presenters */,
 				51CF95EA2587B45C00C9BAB6 /* Data */,
@@ -324,6 +346,7 @@
 				51AC8ADC26A5F6170021A408 /* VO */,
 				51AC8AC226A5C1ED0021A408 /* Model */,
 				51CF95F82587BBB100C9BAB6 /* Repository */,
+				512D951826A601EE00CEC4D6 /* Spendometer.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -496,11 +519,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5166F62326A70EC6008B334A /* DBError.swift in Sources */,
 				51CF95F32587B5C600C9BAB6 /* HomePresenter.swift in Sources */,
 				514862912584B914000853C6 /* SPHeader.swift in Sources */,
 				514724E42584E0FA00AD21F8 /* CategoryListViewController.swift in Sources */,
 				517E92CB2589262D0064700E /* SpendingHistoryPresenter.swift in Sources */,
 				517E92D3258932A80064700E /* DoubleExt.swift in Sources */,
+				5166F62626A718F4008B334A /* SpendingRecordingEntity+Extension.swift in Sources */,
 				514725012584E7DF00AD21F8 /* UpdateSpendingViewController.swift in Sources */,
 				51AC8AD326A5ECC70021A408 /* SpendingRecordRepository.swift in Sources */,
 				514862952584B9E9000853C6 /* Font.swift in Sources */,
@@ -516,12 +541,15 @@
 				514862D82584C391000853C6 /* BaseViewPod.swift in Sources */,
 				514724FA2584E5EC00AD21F8 /* AddNewCategoryViewController.swift in Sources */,
 				51CF96022587CB1300C9BAB6 /* ViewControllerExt.swift in Sources */,
+				512D951A26A601EE00CEC4D6 /* Spendometer.xcdatamodeld in Sources */,
+				5166F61D26A6DCE8008B334A /* SpendingCategoryEntity+Extension.swift in Sources */,
 				51AC8AD726A5ED8E0021A408 /* SpendingRecordModel.swift in Sources */,
 				51660B462580E66A007FABDD /* AppDelegate.swift in Sources */,
 				517E92D6258941770064700E /* UpdateSpendRecordPresenter.swift in Sources */,
 				51CF96052587CD4A00C9BAB6 /* CategoryListPresenter.swift in Sources */,
 				51CF95EF2587B51D00C9BAB6 /* SpendingRecord.swift in Sources */,
 				514724F22584E25500AD21F8 /* CategoryListCell.swift in Sources */,
+				512D951D26A602DE00CEC4D6 /* CoreDataStack.swift in Sources */,
 				51AC8AD026A5E9F90021A408 /* BaseRepository.swift in Sources */,
 				51660B482580E66A007FABDD /* SceneDelegate.swift in Sources */,
 				514724DA2584DA3600AD21F8 /* HomeViewController.swift in Sources */,
@@ -727,6 +755,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		512D951826A601EE00CEC4D6 /* Spendometer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				512D951926A601EE00CEC4D6 /* Spendometer.xcdatamodel */,
+			);
+			currentVersion = 512D951926A601EE00CEC4D6 /* Spendometer.xcdatamodel */;
+			path = Spendometer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 51660B3A2580E669007FABDD /* Project object */;
 }

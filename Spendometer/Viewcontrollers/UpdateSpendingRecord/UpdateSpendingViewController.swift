@@ -37,6 +37,7 @@ class UpdateSpendingViewController: UIViewController {
     }
     
     private func setupView() {
+        textFieldAmount.textFieldInput.keyboardType = .numberPad
         textFieldAmount.placeholderText = "Enter amount"
         
         textFieldNote.placeholderText = "Add notes (optional)"
@@ -47,7 +48,7 @@ class UpdateSpendingViewController: UIViewController {
         buttonSelectDateTime.image = #imageLiteral(resourceName: "ic_calendar")
         buttonSelectDateTime.text = "Select Time (Optional)"
         
-        buttonSave.buttonText = "Save"
+        buttonSave.buttonText = "Update"
         
         buttonDismiss.image = #imageLiteral(resourceName: "ic_close_accent")
         buttonDismiss.containerView.backgroundColor = UIColor.white
